@@ -8,16 +8,23 @@ class Solution {
     }
     ListNode? node1 = list1;
     ListNode? node2 = list2;
-    ListNode? result;
+    ListNode result = ListNode(0, null);
+    ListNode runner = result;
+
     while (node1 != null && node2 != null) {
       if (node1.val < node2.val) {
-        result = node1;
+        runner.next = node1;
         node1 = node1.next;
       } else {
-        result = node2;
+        runner.next = node2;
         node2 = node2.next;
       }
-      result = result.next;
+      runner = runner.next!;
+    }
+    if (node1 == null) {
+      runner.next = node2;
+    } else {
+      runner.next = node1;
     }
     return result;
   }
