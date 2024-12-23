@@ -26,7 +26,7 @@ class Solution {
     } else {
       runner.next = node1;
     }
-    return result;
+    return result.next;
   }
 }
 
