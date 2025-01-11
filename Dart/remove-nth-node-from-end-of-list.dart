@@ -22,7 +22,7 @@ class Solution {
 
       backLine = backLine?.next;
     }
-    backLine?.next = backLine?.next?.next;
+    backLine?.next = backLine.next?.next;
     return head;
   }
 }
