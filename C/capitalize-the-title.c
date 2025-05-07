@@ -14,6 +14,7 @@ char* capitalizeTitle(char* title) {\
             title[i]-='a'-'A';
         }
         i=j+1;
+        
     }
     return title;
 }

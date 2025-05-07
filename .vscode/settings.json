@@ -3,9 +3,9 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "**/CVS": true
     },
     "hide-files.files": [],
     "files.associations": {
@@ -14,5 +14,6 @@
         "stdio.h": "c",
         "array": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "dart.sdkPath": "C:\\tools\\dart-sdk"
 }

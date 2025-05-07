@@ -3,7 +3,7 @@
 class Solution {
   ListNode? mergeKLists(List<ListNode?> lists) {
     lists.removeWhere((list) => list == null);
-
+    
     if (lists.isEmpty) {
       return null;
     }
