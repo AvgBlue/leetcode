@@ -92,7 +92,7 @@ if __name__ == "__main__":
         print(" -> ".join(map(str, values)))
 
     # Example usage
-    values = [4, 2, 1, 3, 2, 4, 1]
+    values = [2, 1, 3, 2, 4, 1]
     head = create_linked_list(values)
     print("Original list:")
     print_linked_list(head)

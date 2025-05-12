@@ -25,6 +25,6 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    n = 4
-    k = 2
+    n = 12
+    k = 4
     print(sol.combine(n, k))
