@@ -11,16 +11,19 @@ from typing import List, Optional
 
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        nums_len = len(nums)
-        if len(nums) == 0:
-            return None
-        if len(nums) == 1:
-            return TreeNode(nums[0])
-        mid: int = nums_len // 2
-        root: Optional[TreeNode] = TreeNode(nums[mid])
-        root.left = self.sortedArrayToBST(nums[:mid])
-        root.right = self.sortedArrayToBST(nums[mid + 1 :])
-        return root
+        def runner(start: int, end: int) -> Optional[TreeNode]:
+            nums_len = end - start
+            if nums_len < 1:
+                return None
+            if nums_len == 1:
+                return TreeNode(nums[start])
+            mid: int = start + (nums_len // 2)
+            root: Optional[TreeNode] = TreeNode(nums[mid])
+            root.left = runner(start, mid)
+            root.right = runner(mid + 1, end)
+            return root
+
+        return runner(0, len(nums))
 
 
 if __name__ == "__main__":
