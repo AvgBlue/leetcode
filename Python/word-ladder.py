@@ -11,34 +11,35 @@ class Solution:
         if endWord not in wordList:
             return 0
 
-        def hamming_distance(word1: str, word2: str) -> int:
-            return sum(c1 != c2 for c1, c2 in zip(word1, word2))
-
-        def in_matrix(word1: str, word2: str) -> bool:
-            return word1 != word2 and hamming_distance(word1, word2) == 1
-
         neighbors_dict: Dict[str, List[str]] = defaultdict(list)
         for word in wordList + [beginWord]:
             for i in range(len(word)):
                 pattern = word[:i] + "*" + word[i + 1 :]
                 neighbors_dict[pattern].append(word)
 
-        visited = set()
-        curr_level: List[str] = [beginWord]
+        visited1 = set([beginWord])
+        visited2 = set([endWord])
+        curr_level1: List[str] = [beginWord]
+        curr_level2: List[str] = [endWord]
+
         steps = 1
 
-        while curr_level:
+        while curr_level1 and curr_level2:
+            if len(curr_level1) > len(curr_level2):
+                curr_level1, curr_level2 = curr_level2, curr_level1
+                visited1, visited2 = visited2, visited1
             next_level: List[str] = []
-            for word1 in curr_level:
+
+            for word1 in curr_level1:
                 for i in range(len(word1)):
                     pattern = word1[:i] + "*" + word1[i + 1 :]
                     for word2 in neighbors_dict[pattern]:
-                        if word2 not in visited:
-                            if word2 == endWord:
+                        if word2 not in visited1:
+                            if word2 in visited2:
                                 return steps + 1
                             next_level.append(word2)
-                            visited.add(word2)
-            curr_level = next_level
+                            visited1.add(word2)
+            curr_level1 = next_level
             steps += 1
 
         return 0

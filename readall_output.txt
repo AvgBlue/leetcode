@@ -1,0 +1,118 @@
+=== 0001.debug.json ===
+{
+  "debugInfo": [
+    {
+      "resultID": "f643c41319f2407da57dfe7d7e48ecfb",
+      "reason": "SynthesizingAudioCompleted",
+      "billableCharacters": "101",
+      "retryCount": "0",
+      "firstByteLatency": "0.182s",
+      "finishTime": "0.194s"
+    }
+  ]
+}
+
+=== 0001.sentence.json ===
+[
+  {
+    "Text": "1 Now the heavens and the earth were completed and all their host.",
+    "AudioOffset": 50,
+    "Duration": 4225
+  }
+]
+
+=== 0001.word.json ===
+[
+  {
+    "Text": "1",
+    "AudioOffset": 50,
+    "Duration": 287
+  },
+  {
+    "Text": "Now",
+    "AudioOffset": 350,
+    "Duration": 175
+  },
+  {
+    "Text": "the",
+    "AudioOffset": 537,
+    "Duration": 100
+  },
+  {
+    "Text": "heavens",
+    "AudioOffset": 650,
+    "Duration": 425
+  },
+  {
+    "Text": "and",
+    "AudioOffset": 1087,
+    "Duration": 87
+  },
+  {
+    "Text": "the",
+    "AudioOffset": 1187,
+    "Duration": 100
+  },
+  {
+    "Text": "earth",
+    "AudioOffset": 1300,
+    "Duration": 312
+  },
+  {
+    "Text": "were",
+    "AudioOffset": 1625,
+    "Duration": 150
+  },
+  {
+    "Text": "completed",
+    "AudioOffset": 1787,
+    "Duration": 562
+  },
+  {
+    "Text": "and",
+    "AudioOffset": 2362,
+    "Duration": 212
+  },
+  {
+    "Text": "all",
+    "AudioOffset": 2587,
+    "Duration": 162
+  },
+  {
+    "Text": "their",
+    "AudioOffset": 2762,
+    "Duration": 162
+  },
+  {
+    "Text": "host",
+    "AudioOffset": 2937,
+    "Duration": 525
+  },
+  {
+    "Text": ".",
+    "AudioOffset": 3475,
+    "Duration": 100
+  }
+]
+
+=== summary.json ===
+{
+  "jobID": "5c6354d8-0906-4dbf-a2fc-9d51257d790a",
+  "status": "Succeeded",
+  "results": [
+    {
+      "contents": [
+        "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"https://www.w3.org/2001/mstts\" xml:lang=\"en-US\"><voice name=\"en-US-AriaNeural\"><prosody rate=\"1\"><p>1 Now the heavens and the earth were completed and all their host.</p></prosody></voice></speak>"
+      ],
+      "status": "Succeeded",
+      "audioFileName": "0001.mp3",
+      "wordBoundaryFileName": "0001.word.json",
+      "sentenceBoundaryFileName": "0001.sentence.json",
+      "properties": {
+        "sizeInBytes": "26064",
+        "durationInMilliseconds": "4344"
+      }
+    }
+  ]
+}
+

@@ -1,13 +1,13 @@
 import os
 
 # Path to your frontend root folder (update this!)
-FRONTEND_DIR = r"C:\Projects\GitHub\ReadBuddy\frontend\ReadBuddy"  # ⬅️ Change this
+FRONTEND_DIR = r"C:\Projects\GitHub\ReadBuddy\frontend\ReadBuddy\ReadBuddy\TestingRes\new-example\job-3a06557adb98-0"  # ⬅️ Change this
 
 # Output text file
-OUTPUT_FILE = "frontend_files.txt"
+OUTPUT_FILE = "readall_output.txt"
 
 # File types we care about
-RELEVANT_EXTENSIONS = {".xaml", ".cs", ".resx"}
+RELEVANT_EXTENSIONS = {".xaml", ".cs", ".resx", ".json"}
 
 # Folders to ignore
 IGNORED_FOLDERS = {"bin", "obj", ".vs", ".git", "__pycache__"}
