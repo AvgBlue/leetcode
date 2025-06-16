@@ -1,6 +1,5 @@
 if __name__ == "__main__":
-    s1 = "aab"
-    s2 = "axy"
-    s3 = "aaxaby"
-    solution = Solution()
-    print(solution.isInterleave(s1, s2, s3))  # Example usage
+    nums = [1, 3, -1, -3, 5, 3, 6, 7]
+    k = 3
+    sol = Solution()
+    sol.maxSlidingWindow(nums, k)
