@@ -15,5 +15,6 @@
         "array": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
-    "dart.sdkPath": "C:\\tools\\dart-sdk"
+    "dart.sdkPath": "C:\\tools\\dart-sdk",
+    "java.debug.settings.onBuildFailureProceed": true
 }
