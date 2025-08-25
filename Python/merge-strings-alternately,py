@@ -1,0 +1,22 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+
+        len_word1 = len(word1)
+        len_word2 = len(word2)
+        len_max = max(len_word1, len_word2)
+        result = ["0"]*(len_word1+len_word2)
+        j=0
+        for i in range(len_max):
+            if i < len_word1:
+                result[j]=word1[i]
+                j+=1
+            if i < len_word2:
+                result[j]=word2[i]
+                j+=1
+        return "".join(result)
+
+
+if __name__ == "__main__":
+    s = Solution()
+    result = s.mergeAlternately("abc", "pqr")
+    print("Merged:", result)
