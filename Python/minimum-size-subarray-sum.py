@@ -10,7 +10,6 @@ class Solution:
         window_sum = nums[start]
 
         while end < len_nums:
-            print(nums[start : end + 1], sum(nums[start : end + 1]))
             if window_sum == target:
                 min_size = min(end - start + 1, min_size)
                 end += 1
@@ -23,6 +22,7 @@ class Solution:
                     window_sum += nums[end]
                 continue
             if target < window_sum:
+                min_size = min(end - start + 1, min_size)
                 if start == end:
                     start += 1
                     end = start

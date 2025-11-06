@@ -3,6 +3,8 @@ from typing import Set
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) == 0:
+            return 0
         start = 0
         len_s = len(s)
         s_set: Set[str] = set([s[0]])
