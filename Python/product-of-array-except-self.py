@@ -11,7 +11,6 @@ class Solution:
         for i in range(len_nums - 1, -1, -1):
             prefix_mul[i] *=  suffix
             suffix *= nums[i]
-        prefix_mul
         return prefix_mul
 
 
