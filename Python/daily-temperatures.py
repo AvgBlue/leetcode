@@ -1,25 +1,18 @@
 class Solution:
 
     def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
-            len_temperatures=len(temperatures)
-            answer = [0] * len_temperatures
-            for i in range(len_temperatures-2,-1,-1):
-                temp1=temperatures[i]
-                ans=0
-                j=i+1
-                while j<len_temperatures:
-                    temp2=temperatures[j]
-                    if temp2>temp1:
-                        ans=j-i
-                        break
-                    elif answer[j]==0:
-                        break
-                    else:
-                        j+=answer[j]
-                answer[i]=ans
+                len_temperatures=len(temperatures)
+                answer = [0] * len_temperatures
+                stack=[0]
+                for i in range(1,len_temperatures):
+                    temp1=temperatures[i]
+                    while stack and temp1>temperatures[stack[-1]]:
+                        j=stack.pop()
+                        answer[j]=i-j
+                    stack.append(i)
 
-                
-            return answer
+                return answer
+
             
 
 
