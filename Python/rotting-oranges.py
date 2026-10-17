@@ -2,11 +2,14 @@
 class Solution:
 
     def orangesRotting(self, grid: list[list[int]]) -> int:
+        directions=[(-1,0),(1,0),(0,-1),(0,1)]
+
+        
         m=len(grid)
         n=len(grid[0])
 
         fresh_orange_count=0
-        directions=[(-1,0),(1,0),(0,-1),(0,1)]
+        
 
         def inbound(pos):
             return 0<=pos[0]<m and 0<=pos[1]<n
