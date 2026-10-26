@@ -39,7 +39,7 @@ class Solution:
             elif c=='[':
                 stack.append(get_inner(i))
             i+=len(stack[-1])
-        print(stack)
+
         while stack:
             head:str=stack.popleft()
             if head.isdigit():
