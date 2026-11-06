@@ -1,19 +1,30 @@
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
-        len_candidates=len(candidates)
-        if target<=0:
-            return []
-        
-        result = set()
-        if target in candidates:
-            result.add((target,))
-        for cand in candidates:
-            sub_target=target-cand
-            sub_result=self.combinationSum(candidates,sub_target)
-            for st in sub_result:
-                result.add(tuple(sorted([cand] + st)))
+        memo = {}
+        def func(target: int):
+            if target in memo:
+                return memo[target]
 
-        return [list(x) for x in result]
+            if target < 0:
+                return []
+
+            if target == 0:
+                return [[]]
+
+            result = set()
+
+            for cand in candidates:
+                sub_target = target - cand
+                sub_result = func(sub_target)
+
+                for st in sub_result:
+                    result.add(tuple(sorted([cand] + st)))
+
+            temp = [list(x) for x in result]
+
+            memo[target] = temp
+            return temp
+        return func(target)
 
 
 def run_tests():
