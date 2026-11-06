@@ -16,7 +16,6 @@ class Solution:
             for i in range(len(word)):
                 pattern = word[:i] + "*" + word[i + 1 :]
                 neighbors_dict[pattern].append(word)
-
         visited1 = set([beginWord])
         visited2 = set([endWord])
         curr_level1: List[str] = [beginWord]
