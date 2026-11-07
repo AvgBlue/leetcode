@@ -1,9 +1,5 @@
 class Solution:
-    def combinationSum(
-        self,
-        candidates: list[int],
-        target: int
-    ) -> list[list[int]]:
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
 
         len_cands = len(candidates)
         vec = [0] * len_cands
