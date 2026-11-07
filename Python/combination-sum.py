@@ -1,30 +1,48 @@
 class Solution:
-    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
-        memo = {}
-        def func(target: int):
-            if target in memo:
-                return memo[target]
+    def combinationSum(
+        self,
+        candidates: list[int],
+        target: int
+    ) -> list[list[int]]:
 
-            if target < 0:
-                return []
+        len_cands = len(candidates)
+        vec = [0] * len_cands
+        vector_results = []
 
-            if target == 0:
-                return [[]]
+        def loop(i: int, current_sum: int):
+            if current_sum == target:
+                vector_results.append(vec[:])
+                return
 
-            result = set()
+            if i >= len_cands:
+                return
 
-            for cand in candidates:
-                sub_target = target - cand
-                sub_result = func(sub_target)
+            cand = candidates[i]
 
-                for st in sub_result:
-                    result.add(tuple(sorted([cand] + st)))
+            max_amount = (target - current_sum) // cand
 
-            temp = [list(x) for x in result]
+            for amount in range(max_amount + 1):
+                vec[i] = amount
 
-            memo[target] = temp
-            return temp
-        return func(target)
+                new_sum = current_sum + amount * cand
+
+                loop(i + 1, new_sum)
+
+            vec[i] = 0
+
+        loop(0, 0)
+
+        result = []
+
+        for vec in vector_results:
+            combination = []
+
+            for cand, amount in zip(candidates, vec):
+                combination += [cand] * amount
+
+            result.append(combination)
+
+        return result
 
 
 def run_tests():
