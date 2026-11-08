@@ -1,29 +1,43 @@
+
+
 class Solution:
     def countServers(self, n: int,logs: list[list[int]], x: int, queries: list[int]) -> list[int]:
         len_queries=len(queries)
         len_logs=len(logs)
-        logs.sort(key=lambda x : x[1]) #[[1, 3], [1, 5],[2, 6]],
-        queries.sort() # [10,11]
-        
+        logs.sort(key=lambda a : a[1]) 
+        queries_indexes = list(range(len_queries))
+        queries_indexes.sort(key= lambda i:queries[i])
+
+        server_count=0
+        server_count_map=[0]*(n+1)
+
+        start=0
+        end =0
+        result=[n]*len_queries
+
+        for j in range(len_queries):
+            query_index = queries_indexes[j]
+            query = queries[query_index]  
+
+            while end<len_logs and logs[end][1]<=query:
+                server_id = logs[end][0]
+                if server_count_map[server_id] == 0:
+                    server_count += 1
+                server_count_map[server_id] += 1
+                end += 1
+            start_val=query-x
+            
+            while start<len_logs and logs[start][1]<start_val:
+                server_id=logs[start][0]
+                if server_count_map[server_id]==1:
+                    server_count-=1
+                server_count_map[server_id]-=1
+                start+=1
+            
+            result[query_index]-=server_count
+        return result
 
 
-
-
-
-        return []
-
-
-    def countServers2(self, n: int,logs: list[list[int]], x: int, queries: list[int]) -> list[int]:
-            len_queries=len(queries)
-            result=[0]*len_queries
-            for i,end in enumerate(queries):
-                is_received=[False]*n
-                for log in logs:
-                    index_id=log[0]-1
-                    if end-x<=log[1] and log[1]<=end:
-                        is_received[index_id]=True
-                result[i]=sum((0 if x else 1) for x in is_received)
-            return result
 
 
 def run_tests():
@@ -64,6 +78,13 @@ def run_tests():
             3,
             [8, 9],
             [0, 1],
+        ),
+        (
+            6,
+            [[1,21]],
+            10,
+            [24,35,28,26,20,25,16,31,12],
+            [5,6,5,5,6,5,6,5,6],
         ),
     ]
 
