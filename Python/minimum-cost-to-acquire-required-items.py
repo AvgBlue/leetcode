@@ -1,5 +1,5 @@
 class Solution:
-    def minimumCost1(
+    def minimumCost(
         self,
         cost1: int,
         cost2: int,
@@ -51,7 +51,7 @@ class Solution:
 
         return result
 
-    def minimumCost(
+    def minimumCost2(
     self,
     cost1: int,
     cost2: int,
